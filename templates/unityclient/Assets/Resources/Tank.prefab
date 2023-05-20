@@ -661,7 +661,6 @@ GameObject:
   - component: {fileID: 2428493033774599304}
   - component: {fileID: 8494640119540737440}
   - component: {fileID: 436748528113392774}
-  - component: {fileID: 4326114591028432108}
   - component: {fileID: 7416213480386566023}
   m_Layer: 6
   m_Name: Tank
@@ -749,25 +748,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destinationMarker: {fileID: 2025210324278177343, guid: c8664dd9069c449de8311723196a65f8, type: 3}
---- !u!114 &4326114591028432108
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7715415014581269739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fe8409fbc88e44678bcad902ca02f24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_StartingHealth: 100
-  m_Slider: {fileID: 7910727617553520593}
-  m_FillImage: {fileID: 3916010118322322081}
-  m_FullHealthColor: {r: 0, g: 1, b: 0, a: 1}
-  m_ZeroHealthColor: {r: 1, g: 0, b: 0, a: 1}
-  m_ExplosionPrefab: {fileID: 151086, guid: edb45b5f1585b480cb512c431287720f, type: 3}
-  shell: {fileID: 7329492745129491182, guid: 09273cb84b31b45ebab13ee0a7a982bc, type: 3}
 --- !u!114 &7416213480386566023
 MonoBehaviour:
   m_ObjectHideFlags: 0

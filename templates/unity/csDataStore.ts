@@ -66,6 +66,7 @@ async function main() {
 
   const tables = mudConfig.tables
   Object.entries(tables).forEach(async ([tableName, tableData]) => {
+    console.log(`Processing table ${tableName}`)
     const filePath = `${outputPath}/${tableName + 'Table'}.cs`
     await createCSComponents(filePath, mudConfig, tableName, tableData)
   })
