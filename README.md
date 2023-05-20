@@ -1,5 +1,17 @@
-oclif-hello-world
-=================
+create-unimud-client
+====================
+
+## Quickstart
+
+```
+git clone https://github.com/marvinmarnold/create-unimud-client
+cd create-unimud-client
+./bin/dev generate --path /ABSOLUTE/PATH/TO/emojimon/packages
+
+// example on macos: ./bin/dev generate --path /Users/user/workspace/emojimon/packages
+```
+
+Emojimon will now have UniMUD cloned in, as one of the packages.
 
 oclif example Hello World CLI
 
