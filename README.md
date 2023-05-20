@@ -39,8 +39,7 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`create-unimud-client hello PERSON`](#create-unimud-client-hello-person)
-* [`create-unimud-client hello world`](#create-unimud-client-hello-world)
+* [`create-unimud-client generate`](#create-unimud-client-generate)
 * [`create-unimud-client help [COMMANDS]`](#create-unimud-client-help-commands)
 * [`create-unimud-client plugins`](#create-unimud-client-plugins)
 * [`create-unimud-client plugins:install PLUGIN...`](#create-unimud-client-pluginsinstall-plugin)
@@ -52,45 +51,25 @@ USAGE
 * [`create-unimud-client plugins:uninstall PLUGIN...`](#create-unimud-client-pluginsuninstall-plugin-2)
 * [`create-unimud-client plugins update`](#create-unimud-client-plugins-update)
 
-## `create-unimud-client hello PERSON`
+## `create-unimud-client generate`
 
-Say hello
+Generates a Unity scaffold for an existing MUD game, using UniMUD
 
 ```
 USAGE
-  $ create-unimud-client hello PERSON -f <value>
-
-ARGUMENTS
-  PERSON  Person to say hello to
+  $ create-unimud-client generate [-p <value>]
 
 FLAGS
-  -f, --from=<value>  (required) Who is saying hello
+  -p, --path=<value>  Installation path. eg /user/john/workspace/emojimon
 
 DESCRIPTION
-  Say hello
+  Generates a Unity scaffold for an existing MUD game, using UniMUD
 
 EXAMPLES
-  $ oex hello friend --from oclif
-  hello friend from oclif! (./src/commands/hello/index.ts)
+  $ create-unimud-client generate
 ```
 
-_See code: [dist/commands/hello/index.ts](https://github.com/marvinmarnold/create-unimud-client/blob/v0.0.0/dist/commands/hello/index.ts)_
-
-## `create-unimud-client hello world`
-
-Say hello world
-
-```
-USAGE
-  $ create-unimud-client hello world
-
-DESCRIPTION
-  Say hello world
-
-EXAMPLES
-  $ create-unimud-client hello world
-  hello world! (./src/commands/hello/world.ts)
-```
+_See code: [dist/commands/generate.ts](https://github.com/marvinmarnold/create-unimud-client/blob/v0.0.0/dist/commands/generate.ts)_
 
 ## `create-unimud-client help [COMMANDS]`
 
