@@ -1,5 +1,6 @@
 import {Command, Flags} from '@oclif/core'
 import {setupContracts} from '../lib/setup-contracts'
+import {setupUnityClient} from '../lib/setup-unityclient'
 // import {exec} from 'node:child_process'
 
 export default class Generate extends Command {
@@ -28,5 +29,6 @@ export default class Generate extends Command {
     //   fs.mkdirSync(path, {recursive: true})
     // }
     setupContracts(path, name)
+    setupUnityClient(path, name)
   }
 }

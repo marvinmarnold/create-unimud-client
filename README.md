@@ -15,4 +15,7 @@ npx create-unimud-client generate
 
 # Alternatively, run from anywhere
 npx create-unimud-client generate --path /PATH/TO/MUD/PROJECT/ROOT
+
+yarn initialize
+yarn run dev
 ```

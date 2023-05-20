@@ -1,1 +1,0 @@
-This directory was originally copied from https://github.com/emergenceland/tankmud-tutorial
