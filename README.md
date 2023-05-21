@@ -51,3 +51,14 @@ Position: {
     }
 }
 ```
+
+## Scope
+
+the following Unity components will be auto-generated:
+
+PlayerSystem:
+- PlayerController
+- PlayerManager
+- PlayerSync
+
+The Unity dev still needs to implement other systems that vary from game to game, like AttackSystem or HealthSystem.
