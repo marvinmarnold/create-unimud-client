@@ -12,12 +12,14 @@ export default class Generate extends Command {
 
   static flags = {
     path: Flags.string({char: 'p', description: 'Installation path. eg /user/john/workspace/emojimon'}),
+    vr: Flags.boolean({char: 'v', description: 'Create VR Unity project for Meta Quest 2'}),
   }
 
   static args = {}
 
   public async run(): Promise<void> {
     const {flags} = await this.parse(Generate)
+    if (flags.vr) console.log('--vr is set')
 
     const path = flags.path ?? './'
     const name = 'unityclient'
@@ -29,6 +31,6 @@ export default class Generate extends Command {
     //   fs.mkdirSync(path, {recursive: true})
     // }
     setupContracts(path, name)
-    setupUnityClient(path, name)
+    setupUnityClient(path, name, flags.vr)
   }
 }

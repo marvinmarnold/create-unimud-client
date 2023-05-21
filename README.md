@@ -24,6 +24,9 @@ npx create-unimud-client generate
 # Alternatively, run from anywhere
 npx create-unimud-client generate --path /PATH/TO/MUD/PROJECT/ROOT
 
+# Or enable VR
+npx create-unimud-client generate --vr
+
 # Install new dependencies
 pnpm i
 
@@ -51,3 +54,7 @@ Position: {
     }
 }
 ```
+
+# Setting up VR / Meta Quest 2
+
+Follow the [official](https://developer.oculus.com/documentation/unity/unity-env-device-setup/) instructions to setup a headset.

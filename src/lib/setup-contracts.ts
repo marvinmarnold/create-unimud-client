@@ -35,7 +35,7 @@ const copyDotNetNethereumCode = (path: string) => {
   fs.cpSync(`${root}/templates/unity`, `${path}/unity`, {recursive: true})
 }
 
-export const setupContracts = (projPath: string, name: string) => {
+export const setupContracts = (projPath: string, name: string): void => {
   console.log('Setting up contracts')
   const contractsPath = `${projPath}/packages/contracts`
 
