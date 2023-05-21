@@ -16,8 +16,9 @@ const updatePackageJson = (path: string, name: string) => {
 
   // add dependencies
   packageJson.devDependencies['ts-node'] = '^10.9.1'
+  packageJson.devDependencies['@types/ejs'] = '^3.1.2'
   packageJson.devDependencies.tsx = '^3.12.7'
-
+  packageJson.devDependencies.ejs = '^3.1.9'
   fs.writeFileSync(packagePath, JSON.stringify(packageJson, null, 2))
 }
 
