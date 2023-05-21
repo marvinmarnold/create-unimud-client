@@ -1,0 +1,1 @@
+This directory contains assets originally copied from https://github.com/emergenceland/tankmud-tutorial

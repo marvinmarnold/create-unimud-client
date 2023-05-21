@@ -1,6 +1,6 @@
 {
   "name": "create-unimud-client",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "Project skeleton generator for MUD into Unity with UniMUD",
   "author": "@marvinmarnold & @larrya4",
   "bin": {
@@ -13,6 +13,7 @@
   "files": [
     "/bin",
     "/dist",
+    "/templates",
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json"
   ],
