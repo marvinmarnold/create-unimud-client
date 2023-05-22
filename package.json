@@ -1,6 +1,6 @@
 {
   "name": "create-unimud-client",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Project skeleton generator for MUD into Unity with UniMUD",
   "author": "@marvinmarnold & @larrya4",
   "bin": {
