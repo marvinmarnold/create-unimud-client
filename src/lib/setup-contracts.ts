@@ -13,10 +13,15 @@ const updatePackageJson = (path: string, name: string) => {
   packageJson.scripts.initialize += ' && dotnet tool restore && pnpm run csgen'
   packageJson.scripts['resources:local'] = `ts-node unity/moveDeployToResources.ts ../${name}/Assets/Resources ./deploys/31337`
   packageJson.scripts['resources:testnet'] = `ts-node unity/moveDeployToResources.ts ../${name}/Assets/Resources ./deploys/4242`
+  packageJson.scripts['resources:hackathon'] = `ts-node unity/moveDeployToResources.ts ../${name}/Assets/Resources ./deploys/16464`
+ 
   packageJson.scripts['deploy:local'] = 'pnpm run initialize && mud deploy && pnpm run resources:local'
   packageJson.scripts['deploy:testnet'] = 'pnpm run initialize && mud deploy --profile=lattice-testnet && pnpm run resources:testnet'
+  packageJson.scripts['deploy:hackathon'] = 'pnpm run initialize && mud deploy --profile=hackathon-testnet && pnpm run resources:hackathon'
+  
   packageJson.scripts['dev:local'] = 'pnpm run deploy:local --disableTxWait'
   packageJson.scripts['dev:testnet'] = 'pnpm run deploy:testnet --disableTxWait'
+  packageJson.scripts['dev:hackathon'] = 'pnpm run deploy:hackathon --disableTxWait'
 
   // add dependencies
   packageJson.devDependencies['ts-node'] = '^10.9.1'

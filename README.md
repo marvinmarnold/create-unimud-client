@@ -26,15 +26,19 @@ npx create-unimud-client generate --path /PATH/TO/MUD/PROJECT/ROOT
 
 # Install new dependencies
 pnpm i
-
-# Code generation
-pnpm run initialize
 ```
 
 Starting the app will depend on the project specifics. A typical flow may be:
-- Start the blockchain locally: `dev mud:node`
+- Start the blockchain locally: `pnpm mudnode`
 - Deploy: `cd packages/contracts && pnpm run dev:local`
 - Optionally start frontend: `pnpm run dev:client`
+
+### Faucet for transactions
+There is currently no automated faucet through UniMUD. 
+You need to manually send ETH to the burner wallets created for each client.
+
+
+**On Quest 2, you can view logs with: `adb logcat -s Unity`.**
 
 ## Prerequisites
 
