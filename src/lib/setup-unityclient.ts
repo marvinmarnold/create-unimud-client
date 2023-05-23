@@ -7,9 +7,15 @@ const copyUnityClient = (path: string) => {
   fs.cpSync(`${root}/templates/unityclient`, `${path}`, {recursive: true})
 }
 
-export const setupUnityClient = (projPath: string, name: string) => {
+const copyVRUnityClient = (path: string) => {
+  console.log('Copying VR Unity client')
+  const root = pathLib.resolve(__dirname, '../..')
+  fs.cpSync(`${root}/templates/vrunityclient`, `${path}`, {recursive: true})
+}
+
+export const setupUnityClient = (projPath: string, name: string, useVr: boolean): void => {
   console.log(`Setting up client ${name}`)
   const unityClientPath = `${projPath}/packages/${name}`
 
-  copyUnityClient(unityClientPath)
+  useVr ? copyVRUnityClient(unityClientPath) : copyUnityClient(unityClientPath)
 }

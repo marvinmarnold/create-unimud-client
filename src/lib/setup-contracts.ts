@@ -3,7 +3,7 @@ import * as pathLib from 'node:path'
 
 const updatePackageJson = (path: string, name: string) => {
   // customize package.json
-  console.log('Updating package.json')
+  console.log('Updating contracts package.json')
   const packagePath = `${path}/package.json`
   const packageJson = JSON.parse(fs.readFileSync(packagePath, 'utf8'))
   // add scripts
@@ -11,13 +11,23 @@ const updatePackageJson = (path: string, name: string) => {
   packageJson.scripts.csBindings = `ts-node unity/csBindings.ts ../${name}/Assets/Scripts`
   packageJson.scripts.csgen = 'pnpm run csBindings && pnpm run csTables'
   packageJson.scripts.initialize += ' && dotnet tool restore && pnpm run csgen'
-  packageJson.scripts.resources = `ts-node unity/moveDeployToResources.ts ../${name}/Assets/Resources ./deploys/31337`
-  packageJson.scripts.deploy += ' && pnpm run resources'
+  packageJson.scripts['resources:local'] = `ts-node unity/moveDeployToResources.ts ../${name}/Assets/Resources ./deploys/31337`
+  packageJson.scripts['resources:testnet'] = `ts-node unity/moveDeployToResources.ts ../${name}/Assets/Resources ./deploys/4242`
+  packageJson.scripts['resources:hackathon'] = `ts-node unity/moveDeployToResources.ts ../${name}/Assets/Resources ./deploys/16464`
+ 
+  packageJson.scripts['deploy:local'] = 'pnpm run initialize && mud deploy && pnpm run resources:local'
+  packageJson.scripts['deploy:testnet'] = 'pnpm run initialize && mud deploy --profile=lattice-testnet && pnpm run resources:testnet'
+  packageJson.scripts['deploy:hackathon'] = 'pnpm run initialize && mud deploy --profile=hackathon-testnet && pnpm run resources:hackathon'
+  
+  packageJson.scripts['dev:local'] = 'pnpm run deploy:local --disableTxWait'
+  packageJson.scripts['dev:testnet'] = 'pnpm run deploy:testnet --disableTxWait'
+  packageJson.scripts['dev:hackathon'] = 'pnpm run deploy:hackathon --disableTxWait'
 
   // add dependencies
   packageJson.devDependencies['ts-node'] = '^10.9.1'
+  packageJson.devDependencies['@types/ejs'] = '^3.1.2'
   packageJson.devDependencies.tsx = '^3.12.7'
-
+  packageJson.devDependencies.ejs = '^3.1.9'
   fs.writeFileSync(packagePath, JSON.stringify(packageJson, null, 2))
 }
 
@@ -34,11 +44,11 @@ const copyDotNetNethereumCode = (path: string) => {
   fs.cpSync(`${root}/templates/unity`, `${path}/unity`, {recursive: true})
 }
 
-export const setupContracts = (projPath: string, name: string) => {
+export const setupContracts = (projPath: string, name: string, skipPackageJson: boolean): void => {
   console.log('Setting up contracts')
   const contractsPath = `${projPath}/packages/contracts`
 
-  updatePackageJson(contractsPath, name)
+  if (!skipPackageJson) updatePackageJson(contractsPath, name)
   copyDotNetNethereumConfigs(contractsPath)
   copyDotNetNethereumCode(contractsPath)
 }
